@@ -1,0 +1,124 @@
+CustomField model:      ---------------->>>> Pending model
+-----------------------
+TYPE_CHOICES = [
+    ("text", 'Text'),
+    ("textarea", 'Textarea'),
+    ("radio", 'Radio'),
+    ("checkbox", 'Checkbox'),
+    ("number", 'Number'),
+    ("email", 'Email'),
+    ("password", 'Password'),
+    ("select", 'Select'),
+    ("multiSelect", 'MultiSelect'),
+    ("date", 'Date'),
+    ("time", 'Time'),
+    ("file", 'File')
+]
+
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+field_type = models.CharField(max_length=255, choices=TYPE_CHOICES)
+field_value = models.JSONField()  # Mixed type to store various types of values
+label = models.CharField(max_length=255)
+label_value = models.CharField(max_length=255)
+is_default = models.BooleanField(default=False)
+isDeleted = models.BooleanField(default=False)
+
+
+
+User Model:     -->> Done
+---------------------
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+firstname = models.CharField(max_length=30)
+lastname = models.CharField(max_length=30)
+email = models.EmailField(unique=True)
+personalEmail = models.EmailField(blank=True, null=True)
+phone_no = models.CharField(max_length=15)
+alternatePhone = models.CharField(max_length=15, blank=True, null=True)
+profilePicture = models.ImageField(upload_to='profiles/', blank=True, null=True)
+password = models.CharField(max_length=128)
+token = models.CharField(max_length=256, blank=True, null=True)
+otp = models.CharField(max_length=6, blank=True, null=True)
+otpExpire = models.DateTimeField(blank=True, null=True)
+financialYear = models.CharField(max_length=20, blank=True, null=True)
+isGoogleSignup = models.BooleanField(default=False)
+googleCredential = models.TextField(blank=True, null=True)
+is_active = models.BooleanField(default=True)
+is_staff = models.BooleanField(default=False)
+is_superuser = models.BooleanField(default=False)
+created_at = models.DateTimeField(default=timezone.now)
+updated_at = models.DateTimeField(auto_now=True)
+isDeleted = models.BooleanField(default=False)
+
+
+Wallet model:       -->> Done
+---------------------
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='wallets')        ----> (0 to M) foreign key
+name = models.CharField(max_length=255)
+Description = models.TextField()
+Icon = models.CharField(max_length=150, blank=True, null=True)
+Color = models.CharField(max_length=7)  # e.g., #FFFFFF for white
+isDeleted = models.BooleanField(default=False)
+
+
+Account Model:      --> working
+------------------------
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, related_name='accounts')        ----> (0 to M) foreign key
+custom_fields = models.ManyToManyField('CustomField', related_name='accounts')    -----> (M to M)
+name = models.CharField(max_length=255)
+acc_num = models.CharField(max_length=255)
+gst_no = models.CharField(max_length=20)
+pan_no = models.CharField(max_length=255)
+bank_Details = models.TextField()
+address = models.TextField()
+phone_no = models.CharField(max_length=255)
+email = models.EmailField()
+notes = models.TextField()
+isDeleted = models.BooleanField(default=False)
+
+
+Client model:
+---------------------
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, related_name='clients')      ----> (0 to M) foreign key
+custom_fields = models.ManyToManyField('CustomField', related_name='clients')    -----> (M to M)
+name = models.CharField(max_length=255)
+phone_no = models.CharField(max_length=255)
+email = models.EmailField()
+gst_no = models.CharField(max_length=20)
+address = models.TextField()
+avatar = models.ImageField(upload_to='client_avatar/', blank=True, null=True)
+notes = models.TextField()
+isDeleted = models.BooleanField(default=False)
+
+
+Category Model:
+-------------------------
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, related_name='categories')    ----> (0 to M) foreign key
+custom_fields = models.ManyToManyField('CustomField', related_name='categories')    -----> (M to M)
+name = models.CharField(max_length=255)
+details = models.TextField()
+notes = models.TextField()
+category_type = models.CharField(choices= (('income', 'income'),('expense', 'expense')))
+income = models.DecimalField(max_digits=10, decimal_places=2)       ------> delete field
+expense = models.DecimalField(max_digits=10, decimal_places=2)      ------> delete field
+isDeleted = models.BooleanField(default=False)
+
+
+Transaction Model:
+-------------------------
+id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # Auto-generated UUID  --> Primary Key
+wallet = models.ForeignKey(Wallet, on_delete=models.CASCADE, related_name='transactions')        ----> (0 to M) foreign key - Need to check
+account = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='transactions')    ----> (0 to M) foreign key
+client = models.ForeignKey(client, on_delete=models.CASCADE, related_name='transactions')    ----> (0 to M) foreign key
+custom_fields = models.ManyToManyField('CustomField', related_name='entries')    -----> (M to M)
+incomeOrExpense = models.CharField(choices= (('income', 'income'),('expense', 'expense')))
+transaction_on = models.DateField()
+name = models.CharField(max_length=255)
+details = models.TextField()
+amount = models.DecimalField(max_digits=10, decimal_places=2)
+payment_mode = models.CharField(max_length=255) --> like cash, online, etc..,
+notes = models.TextField()
+isDeleted = models.BooleanField(default=False)

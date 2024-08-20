@@ -1,0 +1,1294 @@
+{
+	"info": {
+		"_postman_id": "cb77d154-5fdc-4139-9b23-d2c230f00af7",
+		"name": "INCOME EXPENSE TRACKER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34945039"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "/register/ to create user with wallet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "manish",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "vaghela",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "manish@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "manish",
+									"type": "text"
+								},
+								{
+									"key": "phone_no",
+									"value": "9836509267",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/login/ to user login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "manish@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "manish",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user to get logged-in user details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user to update user details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "postman-cloud:///1ef443a6-2447-4420-91fd-de961641a9c1"
+								},
+								{
+									"key": "financialYear",
+									"value": "March",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user to delete logged-in user profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CUSTOM FIELD",
+			"item": [
+				{
+					"name": "Post data with diff types",
+					"item": [
+						{
+							"name": "/custom-fields/ to create field (radio)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNjE1NDAxLCJpYXQiOjE3MjM2MTM2MDEsImp0aSI6IjMyNGEzODM0MTdlMDQ1ZTZhOGUxZWRmMWQyNjkyMDQyIiwidXNlcl9pZCI6IjRhMWYzYTdiLWQ3NjItNDAyOS1hMjVhLTk5YjVhNjExMzllZSJ9.odHkRRRnI1_5JgX4n3ACeYC6p79JETJv0t31V8w_Fhk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"field_type\": \"radio\",\n  \"field_value\": [\"Option 1\", \"Option 2\", \"Option 3\"],\n  \"label\": \"Radio Field\",\n  \"label_value\": \"Radio Label Value\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/custom-fields/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"custom-fields",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/custom-fields/ to create field (text)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNjE1NDAxLCJpYXQiOjE3MjM2MTM2MDEsImp0aSI6IjMyNGEzODM0MTdlMDQ1ZTZhOGUxZWRmMWQyNjkyMDQyIiwidXNlcl9pZCI6IjRhMWYzYTdiLWQ3NjItNDAyOS1hMjVhLTk5YjVhNjExMzllZSJ9.odHkRRRnI1_5JgX4n3ACeYC6p79JETJv0t31V8w_Fhk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"field_type\": \"text\",\n  \"field_value\": \"Sample Text\",\n  \"label\": \"Text Field\",\n  \"label_value\": \"Sample Label Value\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/custom-fields/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"custom-fields",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/custom-fields/ to create field (number)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNjE1NDAxLCJpYXQiOjE3MjM2MTM2MDEsImp0aSI6IjMyNGEzODM0MTdlMDQ1ZTZhOGUxZWRmMWQyNjkyMDQyIiwidXNlcl9pZCI6IjRhMWYzYTdiLWQ3NjItNDAyOS1hMjVhLTk5YjVhNjExMzllZSJ9.odHkRRRnI1_5JgX4n3ACeYC6p79JETJv0t31V8w_Fhk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"field_type\": \"number\",\n  \"field_value\": 1234,\n  \"label\": \"Number Field\",\n  \"label_value\": \"Number Label Value\",\n  \"is_default\": true,\n  \"isDeleted\": false\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/custom-fields/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"custom-fields",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/custom-fields/ to create field (file)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNjE1NDAxLCJpYXQiOjE3MjM2MTM2MDEsImp0aSI6IjMyNGEzODM0MTdlMDQ1ZTZhOGUxZWRmMWQyNjkyMDQyIiwidXNlcl9pZCI6IjRhMWYzYTdiLWQ3NjItNDAyOS1hMjVhLTk5YjVhNjExMzllZSJ9.odHkRRRnI1_5JgX4n3ACeYC6p79JETJv0t31V8w_Fhk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"field_type\": \"file\",\n  \"field_value\": \"/Users/upforcetech/Desktop/img1.webp\",\n  \"label\": \"File Field\",\n  \"label_value\": \"File Label Value\",\n  \"is_default\": false,\n  \"isDeleted\": false\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/custom-fields/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"custom-fields",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/custom-fields/ to get list of fields",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/custom-fields/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"custom-fields",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WALLET",
+			"item": [
+				{
+					"name": "/wallets/ to create new wallets of logged-in user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "wallet_manish_1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This wallet use for online shopping",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "home",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "#fff",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/wallets/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/ to get list of wallets of logged-in user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/wallets/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"wallets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/<uuid>/ to get wallet detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/wallets/dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"wallets",
+								"dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/<uuid>/ to update wallet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "wallets_updated_manish_1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "wallets_update_manish",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/wallets/dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"wallets",
+								"dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/<uuid>/ to delete wallet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/wallets/dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"wallets",
+								"dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACCOUNT",
+			"item": [
+				{
+					"name": "/account/ to create new a/c",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"wallet\":\"dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6\",\n    \"custom_fields\":[\"575a656a-037a-4c8b-8cc6-ce740d610276\", \"68059c86-23c3-4854-829f-a19ad07cd3a3\"],\n    \"name\":\"ICICI bank a/c\",\n    \"acc_num\":\"120487623\",\n    \"gst_no\":\"CI1223ASD6\",\n    \"pan_no\":\"ADFDXC123E\",\n    \"bank_Details\":\"Not Found\",\n    \"address\":\"Ahmedabad\",\n    \"phone_no\":\"987654321\",\n    \"email\":\"icici.amd@gmail.com\",\n    \"notes\":\"NO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/account/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/ to get list a/c of logged-in user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNjI2ODQwLCJpYXQiOjE3MjM2MjUwNDAsImp0aSI6ImU1YjNiNzgyMjA2YjQ4NDFhZjBkYzlmMThmYWJhNjU5IiwidXNlcl9pZCI6Ijg1MWQ3YzNlLTA4NDQtNDczOS1hYzYxLTU2ZTJiMGEwZGYyYSJ9.AOxpfqEv8nw1PFUUNqUOQJmW7g_BpF-670nSBXPzRBU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/account/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/<uuid>/ to get detail of a/c",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/account/e0020284-f8de-4da2-9b4f-7afee6817cc6/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"e0020284-f8de-4da2-9b4f-7afee6817cc6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/<uuid>/ to update a/c",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "address",
+									"value": "baroda_updated",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/account/e0020284-f8de-4da2-9b4f-7afee6817cc6/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"e0020284-f8de-4da2-9b4f-7afee6817cc6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/<uuid>/ to delete a/c",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/account/e0020284-f8de-4da2-9b4f-7afee6817cc6/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"account",
+								"e0020284-f8de-4da2-9b4f-7afee6817cc6",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLIENT",
+			"item": [
+				{
+					"name": "/client/ to create client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzg5MDE0LCJpYXQiOjE3MjM3ODcyMTQsImp0aSI6ImJlNTM5ZjA5YTQxYzQzNGViYjQyNGY3NzlmYzE1ZmZlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.7k3FMgKR9P8OM_SINGpcZLVd1Ry4HdPfR7bO0DREd_A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"C12\",\n    \"phone_no\": \"09876543212\",\n    \"email\": \"c12@gmail.com\",\n    \"gst_no\": \"ABSX1234As897\",\n    \"address\": \"Ahmedabad\",\n    \"notes\": \"No\",\n    \"wallet\": \"dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6\",\n    \"custom_fields\": [\"68059c86-23c3-4854-829f-a19ad07cd3a3\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/client/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/client/ to get list of client",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<uuid>/ to get list of client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkwODM3LCJpYXQiOjE3MjM3ODkwMzcsImp0aSI6ImIwMGEyMjJkODJjZTRmNTQ4YTVjZGU3OTgyODRlYzBkIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9._ZxxRZaHkiQpbq70GR55hWlboCT5v9k-XZAanNDnHAk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/client/8ebfed3a-2de9-4e1a-8d36-328830d63de0/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"8ebfed3a-2de9-4e1a-8d36-328830d63de0",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<uuid>/ to update client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkwODM3LCJpYXQiOjE3MjM3ODkwMzcsImp0aSI6ImIwMGEyMjJkODJjZTRmNTQ4YTVjZGU3OTgyODRlYzBkIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9._ZxxRZaHkiQpbq70GR55hWlboCT5v9k-XZAanNDnHAk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1ef443a5-cc4f-4ba0-bb6c-b16d97c37eae"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/client/8ebfed3a-2de9-4e1a-8d36-328830d63de0/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"8ebfed3a-2de9-4e1a-8d36-328830d63de0",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/client/<uuid>/ to delete client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/client/8ebfed3a-2de9-4e1a-8d36-328830d63de0/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"client",
+								"8ebfed3a-2de9-4e1a-8d36-328830d63de0",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "/category/ to create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkxMzI5LCJpYXQiOjE3MjM3ODk1MjksImp0aSI6ImNkZDJjNjRkODZiMzQ2NmRiYjZkNzQ0NTA4YmI1YmNmIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.4hEoPDQ6XXfJh5HT5JAVWI3jZappeKTHdFZcgO0cqIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"category_123\",\n    \"details\": \"Not found\",\n    \"notes\": \"No\",\n    \"category_type\": \"expense\",\n    \"wallet\": \"dcc9b465-9147-4b0a-9b75-5ba4fa22c1b6\",\n    \"custom_fields\": [\"575a656a-037a-4c8b-8cc6-ce740d610276\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/category/ to get list of category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzMjA0NTEyLCJpYXQiOjE3MjMyMDI3MTIsImp0aSI6IjUzOTkwZGU4ZDZhOTRiOThhMTcyYjg5NjMwYmFmNWRjIiwidXNlcl9pZCI6IjRhMWYzYTdiLWQ3NjItNDAyOS1hMjVhLTk5YjVhNjExMzllZSJ9.ylY2zyBIV-_A1sl-YRYt5260hNIZB5IBSGVIdEGpjOI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/category/<uuid>/ to get category detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkxMzI5LCJpYXQiOjE3MjM3ODk1MjksImp0aSI6ImNkZDJjNjRkODZiMzQ2NmRiYjZkNzQ0NTA4YmI1YmNmIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.4hEoPDQ6XXfJh5HT5JAVWI3jZappeKTHdFZcgO0cqIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/category/fd6484f8-f18d-40c7-9911-6d43b63c97fd/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								"fd6484f8-f18d-40c7-9911-6d43b63c97fd",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/category/<uuid>/ to update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkxMzI5LCJpYXQiOjE3MjM3ODk1MjksImp0aSI6ImNkZDJjNjRkODZiMzQ2NmRiYjZkNzQ0NTA4YmI1YmNmIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.4hEoPDQ6XXfJh5HT5JAVWI3jZappeKTHdFZcgO0cqIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_type",
+									"value": "expense",
+									"type": "text"
+								},
+								{
+									"key": "expense",
+									"value": "2340",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/category/fd6484f8-f18d-40c7-9911-6d43b63c97fd/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								"fd6484f8-f18d-40c7-9911-6d43b63c97fd",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/category/<uuid>/ to delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/category/fd6484f8-f18d-40c7-9911-6d43b63c97fd/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"category",
+								"fd6484f8-f18d-40c7-9911-6d43b63c97fd",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TRANSACTIONS",
+			"item": [
+				{
+					"name": "/transaction/ to create transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkxMzI5LCJpYXQiOjE3MjM3ODk1MjksImp0aSI6ImNkZDJjNjRkODZiMzQ2NmRiYjZkNzQ0NTA4YmI1YmNmIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.4hEoPDQ6XXfJh5HT5JAVWI3jZappeKTHdFZcgO0cqIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categories\": [\"fd6484f8-f18d-40c7-9911-6d43b63c97fd\"],\n    \"custom_fields\":[],\n    \"name\": \"T2\",\n    \"details\": \"NO details\",\n    \"transaction_on\": \"2024-08-15\",\n    \"incomeOrExpense\": \"expense\",\n    \"amount\": 31200,\n    \"payment_mode\": \"cash\",\n    \"notes\": \"no\",\n    \"account\": \"e0020284-f8de-4da2-9b4f-7afee6817cc6\",\n    \"client\": \"8ebfed3a-2de9-4e1a-8d36-328830d63de0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/transaction/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/transaction/ to get list of transactions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/transaction/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/transaction/<uuid> to get transaction details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkxMzI5LCJpYXQiOjE3MjM3ODk1MjksImp0aSI6ImNkZDJjNjRkODZiMzQ2NmRiYjZkNzQ0NTA4YmI1YmNmIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.4hEoPDQ6XXfJh5HT5JAVWI3jZappeKTHdFZcgO0cqIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/transaction/231f1f34-772c-4ced-90c7-3fb5fa553df9/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"231f1f34-772c-4ced-90c7-3fb5fa553df9",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/transaction/<uuid> to update transaction details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"T2_updated\",\n    \"details\": \"NO details\",\n    \"transaction_on\": \"2024-08-18\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/transaction/231f1f34-772c-4ced-90c7-3fb5fa553df9/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"231f1f34-772c-4ced-90c7-3fb5fa553df9",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/transaction/<uuid> to delete transaction details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIzNzkzMzQ0LCJpYXQiOjE3MjM3OTE1NDQsImp0aSI6IjkwMjM2YzM4OWE0YzRkZjlhOWFjYWQ5OWQ5MDY0OTVlIiwidXNlcl9pZCI6IjU3YjNiMTcyLTk1YzUtNGRmMi04NWE2LTJkMGJlYzdiN2VmZSJ9.sn6DLvs_FDlY1EJqFXWMH3l_5bY75ZnKbh_TJEZtdRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/transaction/231f1f34-772c-4ced-90c7-3fb5fa553df9/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"231f1f34-772c-4ced-90c7-3fb5fa553df9",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
